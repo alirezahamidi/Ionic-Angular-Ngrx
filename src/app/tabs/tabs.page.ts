@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MainFacade } from '@core/main-state';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(private mainState: MainFacade) { }
 
+  tabChanged(e: number) {
+    console.log("called");
+    console.log(e);
+    this.mainState.updateActivePage(e)
+  }
 }
